@@ -20,7 +20,7 @@ class Resource extends Model
         return Resource::where('category',$category)
             //->where('status',$status)
             //->orderBy('sort','desc')
-                ->offset($page)
+            ->offset($page)
             ->limit($single)
             ->get();
     }

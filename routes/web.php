@@ -15,15 +15,16 @@
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-    return view('index');
-});
+//Route::get('/', function () {
+//    return view('index');
+//});
 
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', function ($api) {
     $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
         // Endpoints registered here will have the "foo" middleware applied.
+        $api->any('soft/list', 'SoftController@getSoftList');
         $api->post('user/login', 'AuthController@authenticate');
         $api->group(['middleware' => 'jwt.auth'],function ($api){
             $api->get('lesson', 'LessonsController@index');
@@ -35,7 +36,7 @@ $api->version('v1', function ($api) {
 Route::get('/test', 'SoftController@createSoft');
 
 
-Route::post('/api_v2/soft/list', 'SoftController@getSoftList');
+Route::any('/api_v2/soft/list', 'SoftController@getSoftList');
 
 
 
