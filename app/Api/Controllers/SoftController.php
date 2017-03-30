@@ -34,7 +34,7 @@ class SoftController extends BaseController
         // 页数
         $pageNumb = $request->get("page", 1);
         // 单页数
-        $singe = 2;
+        $singe = 10;
         $start = ($pageNumb - 1) * $singe;
 
         $re = Resource::getResFromPage($start, $singe, $category);

@@ -21,6 +21,7 @@ class SoftTransformer extends TransformerAbstract
             'name' => $lesson['name'],
             'intro' => $lesson['intro'],
             'cate' => $lesson['category'],
+            'count' => $lesson['down_count'],
             'img' => $lesson['img_url'],
             'down' => $lesson['down_url'],
             'size' => $lesson['size'],
