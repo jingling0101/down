@@ -5,41 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class Resource extends Model
+class ResourceDesc extends Model
 {
-    protected $table = 'oi_resources';
+    protected $table = 'oi_resources_desc';
     //
-    public function getRes()
+    static public function getResDesc($id)
     {
-        $list = Resource::all();
-        return $list;
-    }
-
-    static public function getResFromPage($page,$single, $category, $status = 1)
-    {
-        return Resource::where('category',$category)
-            //->where('status',$status)
-            //->orderBy('sort','desc')
-            ->offset($page)
-            ->limit($single)
+        $res =ResourceDesc::select('*')
+            ->leftJoin('oi_resources', 'oi_resources.id', '=', 'oi_resources_desc.res_id')
+            ->where('oi_resources.id',$id)
             ->get();
+        return $res;
     }
 
-    /**
-     * @param $page
-     * @param $category
-     * @param int $status
-     * @return mixed
-     */
-    public function getResFromNomPage($page, $category,$id =
-    100060, $status = 1)
-    {
-        return Resource::where('category',$category)
-            ->where('status',$status)
-            ->where('id','<',$id)
-            ->orderBy('sort','desc')
-            ->where('page',$page)
-            ->get()
-            ->limit(15);
-    }
 }

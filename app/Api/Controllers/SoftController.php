@@ -10,7 +10,9 @@ namespace App\Api\Controllers;
 
 
 use App\Api\Transformers\SoftTransformer;
+use App\Api\Transformers\SoftDescTransformer;
 use App\Resource;
+use App\ResourceDesc;
 use Illuminate\Http\Request;
 
 class SoftController extends BaseController
@@ -39,6 +41,14 @@ class SoftController extends BaseController
 
         $re = Resource::getResFromPage($start, $singe, $category);
         return $this->collection($re, new SoftTransformer());
+    }
+
+    public function getSoftDesc(Request $request)
+    {
+        $id = $request->get('id',100000);
+        $rs = ResourceDesc::getResDesc($id);
+//        return $rs;
+        return $this->item($rs[0], new SoftDescTransformer());
     }
 
 }

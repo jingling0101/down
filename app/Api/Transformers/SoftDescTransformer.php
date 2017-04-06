@@ -11,21 +11,23 @@ namespace App\Api\Transformers;
 
 use League\Fractal\TransformerAbstract;
 
-class SoftTransformer extends TransformerAbstract
+class SoftDescTransformer extends TransformerAbstract
 {
 
-    public function transform($lesson)
+    public function transform($data)
     {
         return [
-            'id' => $lesson['id'],
-            'name' => $lesson['name'],
-            'intro' => $lesson['intro'],
-            'cate' => $lesson['category'],
-            'count' => $lesson['down_count'],
-            'img' => $lesson['img_url'],
-            'down' => $lesson['down_url'],
-            'size' => $lesson['size'],
-            'date' => $lesson['date'],
+            'id' => $data['id'],
+            'name' => $data['name'],
+            'intro' => $data['intro'],
+            'cate' => $data['category'],
+            'count' => $data['down_count'],
+            'img' => $data['img_url'],
+            'down' => $data['down_url'],
+            'size' => $data['size'],
+            'date' => $data['date'],
+            'images' => $data['images'],
+            'desc' => $data['desc'],
         ];
     }
 

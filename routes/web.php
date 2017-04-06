@@ -25,6 +25,7 @@ $api->version('v1', function ($api) {
     $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
         // Endpoints registered here will have the "foo" middleware applied.
         $api->any('soft/list', 'SoftController@getSoftList');
+        $api->any('soft/desc', 'SoftController@getSoftDesc');
         $api->post('user/login', 'AuthController@authenticate');
         $api->group(['middleware' => 'jwt.auth'],function ($api){
             $api->get('lesson', 'LessonsController@index');
