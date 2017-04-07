@@ -28,6 +28,7 @@ class SoftDescTransformer extends TransformerAbstract
             'date' => $data['date'],
             'images' => $data['images'],
             'desc' => $data['desc'],
+            'share' => '/#/soft_info/'.$data['id'],
             'img_dir' => date('Ym',strtotime($data['date'])),
         ];
     }

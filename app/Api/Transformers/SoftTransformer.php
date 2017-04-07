@@ -23,6 +23,7 @@ class SoftTransformer extends TransformerAbstract
             'cate' => $data['category'],
             'count' => $data['down_count'],
             'img' => $data['img_url'],
+            'share' => '/#/soft_info/'.$data['id'],
             'down' => $data['down_url'],
             'size' => $data['size'],
             'date' => $data['date'],
