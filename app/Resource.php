@@ -18,8 +18,8 @@ class Resource extends Model
     static public function getResFromPage($page,$single, $category, $status = 1)
     {
         return Resource::where('category',$category)
-            //->where('status',$status)
-            //->orderBy('sort','desc')
+            ->where('status',$status)
+            ->orderBy('id','desc')
             ->offset($page)
             ->limit($single)
             ->get();
