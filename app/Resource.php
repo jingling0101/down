@@ -19,6 +19,7 @@ class Resource extends Model
     {
         return Resource::where('category',$category)
             ->where('status',$status)
+            ->orderBy('sort','desc')
             ->orderBy('id','desc')
             ->offset($page)
             ->limit($single)
