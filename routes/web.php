@@ -26,6 +26,7 @@ $api->version('v1', function ($api) {
         // Endpoints registered here will have the "foo" middleware applied.
         $api->any('soft/list', 'SoftController@getSoftList');
         $api->any('soft/desc', 'SoftController@getSoftDesc');
+        $api->any('soft/search', 'SoftSearchController@getSoftFromKeyWords');
 
         $api->post('user/login', 'AuthController@authenticate');
         $api->group(['middleware' => 'jwt.auth'],function ($api){
