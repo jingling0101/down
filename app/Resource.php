@@ -48,14 +48,22 @@ class Resource extends Model
      * @param int $category
      * @return mixed
      */
-    static public function getResFromKeyWord(String $key, $category = 0)
+    static public function getResFromKeyWord($page, $single, $key, $category = 0, $status = 1)
     {
         if ($category == 0) {
             return Resource::where('key_words', 'like', '%' . $key . '%')
+                ->where('status',$status)
+                ->orderBy('id','desc')
+                ->offset($page)
+                ->limit($single)
                 ->get();
         } else {
             return Resource::where('category',$category)
                 ->where('key_words', 'like', '%' . $key . '%')
+                ->where('status',$status)
+                ->orderBy('id','desc')
+                ->offset($page)
+                ->limit($single)
                 ->get();
         }
 
