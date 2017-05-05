@@ -24,6 +24,10 @@ class SoftController extends BaseController
         return $this->collection($lesson, new SoftTransformer());
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function getSoftList(Request $request)
     {
         // 单页数
@@ -38,6 +42,11 @@ class SoftController extends BaseController
         return $this->collection($re, new SoftTransformer());
     }
 
+    /**
+     * app详情
+     * @param Request $request
+     * @return mixed
+     */
     public function getSoftDesc(Request $request)
     {
         $id = $request->get('id',100000);
@@ -45,8 +54,22 @@ class SoftController extends BaseController
         return $this->item($rs[0], new SoftDescTransformer());
     }
 
-    //
-    public function getSoftListByCate(Request $request){
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function increaseSoftCount(Request $request)
+    {
+        //return $request;
+        $id = $request->get('id');
+        //return $id;
+        $rs = Resource::find($id);
+        if ($rs) {
+            $rs->down_count += 1;
+            $re = $rs->save();
+            if($re) Log::info('down_count +1 res_id:' . $id);
+        }
+        return;
 
     }
 
