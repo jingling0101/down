@@ -26,10 +26,10 @@ class SoftSearchController extends BaseController
         $category = $request->get("cate",0);
         // 页数
         $pageNumb = $request->get("page", 1);
-        Log::info('get_soft_search from page num:' . $pageNumb);
         $start = ($pageNumb - 1) * $single;
         $words = trim(sprintf("%s",$keyWords));
         if(strpos("'",$words)!==false || strpos('"',$words)!==false) return [];
+        Log::info('get_soft_search from page num:' . $pageNumb .' key:'.$words);
 
         $rs = Resource::getResFromKeyWord($start, $single, $words);
         return $this->collection($rs, new SoftTransformer());
