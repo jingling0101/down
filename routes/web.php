@@ -19,6 +19,10 @@
 //    return view('index');
 //});
 
+Route::get('/', 'SoftController@index');
+
+
+
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', function ($api) {
@@ -37,8 +41,6 @@ $api->version('v1', function ($api) {
 
 });
 
+Route::get('/list', 'SoftController@getSoftList');
 Route::get('/test', 'SoftController@createSoft');
-
-
-Route::any('/api_v2/soft/list', 'SoftController@getSoftList');
 

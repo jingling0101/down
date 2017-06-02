@@ -11,26 +11,26 @@ use YueCode\Cos\QCloudCos;
 
 class SoftController extends Controller
 {
+
+    public function index() {
+        return view('index');
+    }
+
     //
     public function getSoftList(Request $request)
     {
-//        Log::info(print_r($request->all(), true));
-//        Log::info($request->get("page"));
+        // 单页数
+        $single = env('SINGLE_NUM',10);
         // category
         $category = 100;
         // 页数
         $pageNumb = $request->get("page",1);
-        // 单页数
-        $singe = 2;
-        $start = ($pageNumb - 1) * $singe;
 
-        $re = Resource::getResFromPage($start,$singe,$category);
+        $start = ($pageNumb - 1) * $single;
+
+        $re = Resource::getResFromPage($start,$single,$category);
         //return $re;
         return Transform::success($re);
-
-//        $softList = Resource::all();
-//        return Transform::fail($softList,Transform::$net_no_load,Transform::$not_down);
-//        return Transform::success($softList);
     }
 
     public function createSoft(){
