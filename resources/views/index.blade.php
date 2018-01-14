@@ -90,18 +90,40 @@
 <div class="pc-header-login"></div>
 
 <div class="pc-top-t">
-    <div class="pc-top-div pc-logo"></div>
-    <div class="pc-top-div pc-search">123</div>
+    <div class="pc-top-div pc-logo">
+        <img src="http://img5sw.baidu.com/soft/55/11339/6dfaa02c40d222d387410ca78a903cc3.png?version=3387533712">
+        <div>软件中心</div>
+    </div>
+    <div class="pc-top-div pc-search">
+        <input>
+    </div>
     <div class="pc-top-div pc-search-r">123</div>
 </div>
 <div class="pc-nav">
     22
+    <ul>
+        <li class="nav-list">首页</li>
+        <li class="nav-list">首页</li>
+        <li class="nav-list">首页</li>
+        <li class="nav-list">首页</li>
+    </ul>
 </div>
 
 <!--index main-->
 <div class="pc-main">
     <div class="main-div main-l">
-        11
+        软件分类
+
+        <ul>
+            <li class="rs-category">mac专区</li>
+            <li class="rs-category">聊天通讯</li>
+            <li class="rs-category">影视播放</li>
+            <li class="rs-category">mac专区</li>
+            <li class="rs-category">下载工具</li>
+            <li class="rs-category">mac专区</li>
+            <li class="rs-category">mac专区</li>
+        </ul>
+        <div>提交软件</div>
     </div>
     <div class="main-div main-c">
         11

@@ -41,6 +41,10 @@ $api->version('v1', function ($api) {
 
 });
 
-Route::get('/list', 'SoftController@getSoftList');
-Route::get('/test', 'SoftController@createSoft');
 
+Auth::routes();
+
+
+Route::get('/admin', 'AdminController@index');
+
+Route::get('/home', 'HomeController@index');

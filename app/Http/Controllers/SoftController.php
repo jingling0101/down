@@ -6,7 +6,6 @@ use App\Resource;
 use App\Transform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use YueCode\Cos\QCloudCos;
 
 
 class SoftController extends Controller
@@ -35,7 +34,6 @@ class SoftController extends Controller
 
     public function createSoft(){
         $bucket = 'softdown';
-        return QCloudCos::stat($bucket,'test/11.txt');
     }
 
 }
